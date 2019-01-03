@@ -1,11 +1,10 @@
-picoReflow
-==========
+kilnController
+==============
 
-Turns a Raspberry Pi into a cheap, universal & web-enabled Reflow Oven Controller.
-Of course, since it is basically just a robot sensing temperature and controlling
-environmental agitators (heating/cooling) you can use it as inspiration / basis
-when you're in need of a PID based temperature controller for your project.
-Don't forget to share and drop a link, when you do :)
+Turns a Raspberry Pi into a cheap, universal & web-enabled kiln Controller.
+Forked from the reflow oven project: [picoReflow](https://apollo.open-resource.org/mission:resources:picoreflow) which I found through a blog post on [succulent ceramics](http://succulentceramics.com/2016/10/07/wifiraspberry-kiln-controller/)
+
+I used this to add a firing schedule control to a little pottery kiln I picked up second hand. The kiln is 10A/240V rated to 1000 degrees C. It had a door switch and a basic thermostat which allowed for 25%, 50%, 75% or 100% power but no timer. With the kilnController I can now set it up for a bisque or low temerature glaze firing and leave it to its own devices, checking progress every now and then on my mobile phone or PC. 
 
 **Standard Interface**
 
@@ -17,9 +16,10 @@ Don't forget to share and drop a link, when you do :)
 
 ## Hardware
 
-  * Raspberry Pi (Rev 2B)
-  * MAX 31855/6675 Cold-Junction K-Type Thermocouple
-  * GPIO driven Solid-State-Relays/MOSFETs
+  * [Raspberry Pi Zero W](https://raspberry.piaustralia.com.au/raspberry-pi-zero-w) - any pi will do but these are about $15 here in Australia
+  * [MAX 31855](https://www.adafruit.com/product/269) Cold-Junction K-Type Thermocouple (about $6 on eBay)
+  * [K-Type Thermocouple Sensor](https://www.google.com/search?q=K-Type+Thermocouple+Sensor+1250+1M+SY+site%3Aebay.com.au) -100°C to 1250°C ($3 on eBay)
+  * Solid State Relay Module [SSR-25DA](https://www.google.com/search?q=Solid+State+Relay+Module+SSR-25DA+25A+%2F250V+3-32V+DC+Input+24-380VAC+Output+pOK) 25A /250V 3-32V DC Input 24-380VAC Output (again, about $6 on eBay)
 
 ## Installation
 
@@ -63,8 +63,8 @@ If you also want to use the in-kernel SPI drivers with a MAX31855 sensor:
 
 ### Clone repo
 
-    $ git clone https://github.com/apollo-ng/picoReflow.git
-    $ cd picoReflow
+    $ git clone https://github.com/botheredbybees/kilnController.git
+    $ cd kilnController
 
 ## Configuration
 
@@ -76,14 +76,16 @@ All parameters are defined in config.py, just copy the example and review/change
 
 ### Server Startup
 
-    $ ./picoReflowd.py
+    $ ./kilncontrollerd.py
 
 ### Autostart Server onBoot
-If you want the server to autostart on boot, run the following commands
+If you want the server to autostart on boot, run:
 
-    sudo cp /home/pi/picoReflow/lib/init/reflow /etc/init.d/
-    sudo chmod +x /etc/init.d/reflow
-    sudo update-rc.d reflow defaults
+    sudo nano /etc/rc.local
+
+add the line:
+
+    `sudo python /home/pi/kilnController/kilncontrollerd.py &`
 
 ### Client Access
 
@@ -105,8 +107,6 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-## Support & Contact
+## picoReflow
 
-Please use the issue tracker for project related issues.
-
-More info: https://apollo.open-resource.org/mission:resources:picoreflow
+For more info on the parent project, see picoReflow: https://apollo.open-resource.org/mission:resources:picoreflow
