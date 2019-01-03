@@ -16,8 +16,8 @@ try:
     import config
     sys.dont_write_bytecode = False
 except:
-    print "Could not import config file."
-    print "Copy config.py.EXAMPLE to config.py and adapt it for your setup."
+    print("Could not import config file.")
+    print("Copy config.py.EXAMPLE to config.py and adapt it for your setup.")
     exit(1)
 
 logging.basicConfig(level=config.log_level, format=config.log_format)
@@ -27,7 +27,6 @@ log.info("Starting kilncontrollerd")
 script_dir = os.path.dirname(os.path.realpath(__file__))
 sys.path.insert(0, script_dir + '/lib/')
 profile_path = os.path.join(script_dir, "storage", "profiles")
-
 from oven import Oven, Profile
 from ovenWatcher import OvenWatcher
 
@@ -44,7 +43,9 @@ def index():
 @app.route('/kilncontroller/:filename#.*#')
 def send_static(filename):
     log.debug("serving %s" % filename)
-    return bottle.static_file(filename, root=os.path.join(os.path.dirname(os.path.realpath(sys.argv[0])), "public"))
+    return bottle.static_file(filename, 
+        root=os.path.join(os.path.dirname(os.path.realpath(sys.argv[0])), 
+        "public"))
 
 
 def get_websocket_from_request():
@@ -81,8 +82,8 @@ def handle_control():
                 simulated_oven = Oven(simulate=True, time_step=0.05)
                 simulation_watcher = OvenWatcher(simulated_oven)
                 simulation_watcher.add_observer(wsock)
-                #simulated_oven.run_profile(profile)
-                #simulation_watcher.record(profile)
+                # simulated_oven.run_profile(profile)
+                # simulation_watcher.record(profile)
             elif msgdict.get("cmd") == "STOP":
                 log.info("Stop command received")
                 oven.abort_run()
@@ -177,7 +178,7 @@ def get_profiles():
 
 def save_profile(profile, force=False):
     profile_json = json.dumps(profile)
-    filename = profile['name']+".json"
+    filename = profile['name'] + ".json"
     filepath = os.path.join(profile_path, filename)
     if not force and os.path.exists(filepath):
         log.error("Could not write, %s already exists" % filepath)
@@ -188,9 +189,10 @@ def save_profile(profile, force=False):
     log.info("Wrote %s" % filepath)
     return True
 
+
 def delete_profile(profile):
-    profile_json = json.dumps(profile)
-    filename = profile['name']+".json"
+    # profile_json = json.dumps(profile)
+    filename = profile['name'] + ".json"
     filepath = os.path.join(profile_path, filename)
     os.remove(filepath)
     log.info("Deleted %s" % filepath)
