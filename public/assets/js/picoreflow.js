@@ -454,7 +454,7 @@ $(document).ready(function()
         {
             console.log("Status Socket has been opened");
 
-            $.bootstrapGrowl("<span class=\"glyphicon glyphicon-exclamation-sign\"></span> <b>Yay</b><br/>I'm alive",
+            $.bootstrapGrowl("<span class=\"glyphicon glyphicon-exclamation-sign\"></span> <b>Initialising</b><br/>Give me a minute to get things together",
             {
             ele: 'body', // which element to append to
             type: 'success', // (null, 'info', 'error', 'success')
@@ -539,7 +539,7 @@ $(document).ready(function()
                     eta = new Date(left * 1000).toISOString().substr(11, 8);
 
                     updateProgress(parseFloat(x.runtime)/parseFloat(x.totaltime)*100);
-                    $('#state').html('<span class="glyphicon glyphicon-time" style="font-size: 22px; font-weight: normal"></span><span style="font-family: Digi; font-size: 40px;">' + eta + '</span>');
+                    $('#state').html('<span class="" style="font-size: 22px; font-weight: normal"></span><span style="font-family: Digi; font-size: 40px;">' + eta + '</span>');
                     $('#target_temp').html(parseInt(x.target));
 
 
@@ -554,10 +554,12 @@ $(document).ready(function()
                 $('#act_temp').html(parseInt(x.temperature));
                 
                 if (x.heat > 0.5) { $('#heat').addClass("ds-led-heat-active"); } else { $('#heat').removeClass("ds-led-heat-active"); }
-                if (x.cool > 0.5) { $('#cool').addClass("ds-led-cool-active"); } else { $('#cool').removeClass("ds-led-cool-active"); }
-                if (x.air > 0.5) { $('#air').addClass("ds-led-air-active"); } else { $('#air').removeClass("ds-led-air-active"); }
-                if (x.temperature > hazardTemp()) { $('#hazard').addClass("ds-led-hazard-active"); } else { $('#hazard').removeClass("ds-led-hazard-active"); }
-                if ((x.door == "OPEN") || (x.door == "UNKNOWN")) { $('#door').addClass("ds-led-door-open"); } else { $('#door').removeClass("ds-led-door-open"); }
+                // the commented out icons below were from the old reflow oven code
+                // I don't worry about them for my kiln, but you might find a use for them some time
+                // if (x.cool > 0.5) { $('#cool').addClass("ds-led-cool-active"); } else { $('#cool').removeClass("ds-led-cool-active"); }
+                // if (x.air > 0.5) { $('#air').addClass("ds-led-air-active"); } else { $('#air').removeClass("ds-led-air-active"); }
+                // if (x.temperature > hazardTemp()) { $('#hazard').addClass("ds-led-hazard-active"); } else { $('#hazard').removeClass("ds-led-hazard-active"); }
+                // if ((x.door == "OPEN") || (x.door == "UNKNOWN")) { $('#door').addClass("ds-led-door-open"); } else { $('#door').removeClass("ds-led-door-open"); }
 
                 state_last = state;
 
