@@ -514,7 +514,7 @@ $(document).ready(function()
                     {
                         $('#target_temp').html('---');
                         updateProgress(0);
-                        $.bootstrapGrowl("<span class=\"glyphicon glyphicon-exclamation-sign\"></span> <b>Run completed</b>", {
+                        $.bootstrapGrowl("<b>Firing completed</b>", {
                         ele: 'body', // which element to append to
                         type: 'success', // (null, 'info', 'error', 'success')
                         offset: {from: 'top', amount: 250}, // 'top', or 'bottom'

@@ -82,7 +82,7 @@ body {
     vertical-align: top;
     text-align: center;
     color: #000;
-    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.75);
+    /*text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.75);*/
 }
 
 .ds-num {
@@ -312,15 +312,15 @@ body {
 }
 
 .btn-success {
-    background: rgb(164,179,87);
+    /*background: rgb(164,179,87);
     background: -moz-linear-gradient(top, rgba(164,179,87,1) 0%, rgba(117,137,12,1) 100%);
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(164,179,87,1)), color-stop(100%,rgba(117,137,12,1)));
     background: -webkit-linear-gradient(top, rgba(164,179,87,1) 0%,rgba(117,137,12,1) 100%);
     background: -o-linear-gradient(top, rgba(164,179,87,1) 0%,rgba(117,137,12,1) 100%);
     background: -ms-linear-gradient(top, rgba(164,179,87,1) 0%,rgba(117,137,12,1) 100%);
     background: linear-gradient(to bottom, rgba(164,179,87,1) 0%,rgba(117,137,12,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a4b357', endColorstr='#75890c',GradientType=0 );
-    background-color: #75890c;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a4b357', endColorstr='#75890c',GradientType=0 );*/
+    background-color: #4caf50;
 }
 
 .modal-content {

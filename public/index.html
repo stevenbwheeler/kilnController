@@ -11,7 +11,7 @@
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/jquery.bootstrap-growl.min.js"></script>
     <script src="assets/js/select2.min.js"></script>
-    <script src="assets/js/picoreflow.js"></script>
+    <script src="assets/js/kilncontroller.js"></script>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css"/>
     <link rel="stylesheet" href="assets/css/bootstrap-modal.css"/>
@@ -67,8 +67,8 @@
         </div>
         <div id="btn_controls" class="pull-right" style="margin-top: 3px">
           <div id="nav_start" class="btn-group" style="display:none">
-            <button type="button" class="btn btn-default" onclick="runTaskSimulation();">Simulate</button>
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#jobSummaryModal"><span class="glyphicon glyphicon-play"></span> Start</button>
+            <!-- <button type="button" class="btn btn-default" onclick="runTaskSimulation();">Simulate</button> -->
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#jobSummaryModal">Start <span class="glyphicon glyphicon-play"></span> </button>
           </div>
           <button id="nav_stop" type="button" class="btn btn-danger" onclick="abortTask()" style="display:none" ><span class="glyphicon glyphicon-stop"></span> Stop</button>
         </div>
@@ -105,7 +105,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h3 class="modal-title" id="jobSummaryModalLabel">Task Overview</h3>
+          <h3 class="modal-title" id="jobSummaryModalLabel">Firing Overview</h3>
         </div>
         <div class="modal-body">
           <table class="table table-bordered">
@@ -115,9 +115,9 @@
           </table>
         </div>
         <div class="modal-footer">
-          <div class="btn-group" style="width: 100%">
-            <button type="button" class="btn btn-danger" style="width: 50%" data-dismiss="modal">No, take me back</button>
-            <button type="button" class="btn btn-success" style="width: 50%" data-dismiss="modal" onclick="runTask()">Yes, start the Run</button>
+          <div class="btn-group" style="">
+            <button type="button" class="btn btn-success" style="" data-dismiss="modal" onclick="runTask()">Start the firing</button>
+            <button type="button" class="btn btn-danger" style="" data-dismiss="modal">Cancel</button>
           </div>
         </div>
       </div>
