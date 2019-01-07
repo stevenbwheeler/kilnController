@@ -27,13 +27,14 @@ currency_type   = "AUD"   # Currency Symbol to show when calculating cost to run
 
 ### Outputs
 gpio_heat = 23  # Switches zero-cross solid-state-relay (was 11 initially)
+# I don't use the following two imputs for ceramics, but there here if you need them:
 gpio_cool = 10  # Regulates PWM for 12V DC Blower
 gpio_air  = 9   # Switches 0-phase det. solid-state-relay
 
 heater_invert = 0 # switches the polarity of the heater control (was 0 initially)
 
 ### Inputs
-gpio_door = 18
+gpio_door = 18 # another one I don't use, but might find useful one day
 
 ### Thermocouple Adapter selection:
 #   max31855 - bitbang SPI interface
@@ -53,7 +54,7 @@ spi_sensor_chip_id = 0
 
 ### amount of time, in seconds, to wait between reads of the thermocouple
 sensor_time_wait = 10
-# was .5
+# was .5 for solder reflow
 
 
 ########################################################################
