@@ -9,7 +9,8 @@ import bottle
 import gevent
 import geventwebsocket
 from gevent.pywsgi import WSGIServer
-from geventwebsocket.handler import WebSocketHandler
+# from geventwebsocket.handler import WebSocketHandler # not floating my boat (Peter)
+from geventwebsocket import WebSocketError
 
 try:
     sys.dont_write_bytecode = True
@@ -87,7 +88,7 @@ def handle_control():
             elif msgdict.get("cmd") == "STOP":
                 log.info("Stop command received")
                 oven.abort_run()
-        except WebSocketError:
+        except WebSocketHandler.WebSocketError:
             break
     log.info("websocket (control) closed")
 
@@ -132,7 +133,7 @@ def handle_storage():
 
                     wsock.send(json.dumps(msgdict))
                     wsock.send(get_profiles())
-        except WebSocketError:
+        except WebSocketHandler.WebSocketError:
             break
     log.info("websocket (storage) closed")
 
@@ -145,7 +146,7 @@ def handle_config():
         try:
             message = wsock.receive()
             wsock.send(get_config())
-        except WebSocketError:
+        except WebSocketHandler.WebSocketError:
             break
     log.info("websocket (config) closed")
 
@@ -159,7 +160,7 @@ def handle_status():
         try:
             message = wsock.receive()
             wsock.send("Your message was: %r" % message)
-        except WebSocketError:
+        except WebSocketHandler.WebSocketError:
             break
     log.info("websocket (status) closed")
 

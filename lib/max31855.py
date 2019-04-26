@@ -73,7 +73,8 @@ class MAX31855(object):
         shortToVCC = (data_32 & 0x00000004) != 0         # SCV bit, D2
         if anyErrors:
             if noConnection:
-                raise MAX31855Error("No Connection")
+                # raise MAX31855Error("No Connection")
+                print("MAX31855Error(No Connection)")
             elif shortToGround:
                 raise MAX31855Error("Thermocouple short to ground")
             elif shortToVCC:

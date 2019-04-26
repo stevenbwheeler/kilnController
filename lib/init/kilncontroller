@@ -16,11 +16,11 @@
 export HOME
 case "$1" in
     start)
-        echo "Starting Reflow Server"
+        echo "Starting kiln controller Server"
         /home/pi/kilnController/kilncontrollerd.py  2>&1 &
     ;;
     stop)
-        echo "Stopping Reflow Server"
+        echo "Stopping kiln controller Server"
         reflow_PID=`ps auxwww | grep kilncontrollerd.py | head -1 | awk '{print $2}'`
         kill -9 $reflow_PID
     ;;
