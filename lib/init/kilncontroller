@@ -17,6 +17,7 @@ export HOME
 case "$1" in
     start)
         echo "Starting kiln controller Server"
+        cd /home/pi/kilnController
         /home/pi/kilnController/kilncontrollerd.py  2>&1 &
     ;;
     stop)

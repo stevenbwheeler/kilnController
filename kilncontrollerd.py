@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/python
 
 import os
 import sys
@@ -9,7 +9,7 @@ import bottle
 import gevent
 import geventwebsocket
 from gevent.pywsgi import WSGIServer
-# from geventwebsocket.handler import WebSocketHandler # not floating my boat (Peter)
+from geventwebsocket.handler import WebSocketHandler 
 from geventwebsocket import WebSocketError
 
 try:
