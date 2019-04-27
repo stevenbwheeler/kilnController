@@ -13,8 +13,8 @@ listening_ip = "0.0.0.0"
 listening_port = 8081
 
 ### Cost Estimate
-kwh_rate        = 0.28  # Rate in currency_type to calculate cost to run job
-currency_type   = "AUD"   # Currency Symbol to show when calculating cost to run job
+kwh_rate        = 0.22  # Rate in currency_type to calculate cost to run job
+currency_type   = "USD"   # Currency Symbol to show when calculating cost to run job
 
 ########################################################################
 #
@@ -53,7 +53,7 @@ gpio_sensor_data = 17
 spi_sensor_chip_id = 0
 
 ### amount of time, in seconds, to wait between reads of the thermocouple
-sensor_time_wait = 10
+sensor_time_wait = 5
 # was .5 for solder reflow
 
 
@@ -84,7 +84,7 @@ sim_R_ho_air   = 0.05   # K/W  " with internal air circulation
 #
 #   Time and Temperature parameters
 
-temp_scale          = "c" # c = Celsius | f = Fahrenheit - Unit to display 
+temp_scale          = "f" # c = Celsius | f = Fahrenheit - Unit to display 
 time_scale_slope    = "m" # s = Seconds | m = Minutes | h = Hours - Slope displayed in temp_scale per time_scale_slope
 time_scale_profile  = "m" # s = Seconds | m = Minutes | h = Hours - Enter and view target time in time_scale_profile
 
